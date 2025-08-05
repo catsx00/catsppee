@@ -1,0 +1,61 @@
+................................... [Palindrome num] .....................................
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n, rev=0;
+    cout<<"enter the Number to check wheather it is Palindrome: ";
+    cin>>n;
+    if(n<0){
+        cout<<"there is no Palindrome number for negetive numbers";
+        return 0;
+    }
+
+    int x=n;
+    while(x!=0){
+        rev = rev*10 + x%10;
+        x/=10;
+    }
+
+    if(rev==n){
+        cout<<"It is a Palindrome Number"<<endl;
+    }else{
+        cout<<"It is not a Palindrome Number"<<endl;
+    }
+
+}
+
+
+
+
+.............................. [Palindrome between two num] ..............................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<<"Enter the lower and upper limits: ";
+    cin>>a>>b;
+    
+    if(a<0 || b<0){
+        cout<<"Palindrome number does't exists";
+        return 0;
+    }
+
+    cout<<"Palindrome numbers between "<<a<<" & "<<b<<" are: ";
+    for(int i=a; i<=b; i++){
+        int rev=0;
+        
+        int x=i;
+        while(x!=0){
+            rev = rev*10 + x%10;
+            x/=10;
+        }
+        
+        if(rev==i){cout<< i <<"\t";}
+    }
+
+}
