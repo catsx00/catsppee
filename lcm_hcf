@@ -1,0 +1,30 @@
+.................................... [Hcf Lcm] ...........................................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<<"Enter two numbers to calculate LCM & HCF: ";
+    cin>>a>>b;
+
+    if(a==0 || b==0){
+        cout<<"LCM & HCF cannot be obtained"<<endl;
+        return 0;
+    }
+    if(a<0) {a=-a;}
+    if(b<0) {b=-b;}
+
+    int min, lcm, hcf;
+    if(a<b) {min= a;}
+    else {min =b;}
+
+    for(int i=1; i<=min; i++){
+        if(a%i==0 && b%i==0){hcf=i;}
+    }
+
+    lcm=(a*b)/hcf;
+
+    cout<<"LCM = "<<lcm<<" & HCF = "<<hcf;
+}
