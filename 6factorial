@@ -1,0 +1,48 @@
+.................................. [Factorial of a Number] ..............................
+
+
+//[FACTORIAL USING RECURSION]..........
+
+#include<iostream>
+using namespace std;
+
+int fac(int n);
+
+int main(){
+    int num;
+    cout<< "Enter a number to find its factorial: ";
+    cin>> num;
+    cout<< "the factorial of "<< num << " is: " <<fac(num) <<endl;
+}
+
+int fac(int n){
+    if(n==0 || n==1){
+        return 1;
+    } else {
+        return n * fac(n - 1);
+    }
+}
+
+
+
+
+//[FACTORIAL USING LOOP]..........
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int num, fac=1;
+    cout<< "Enter a number to find its factorial: "<<endl;
+    cin>> num;
+
+    if(num==0){
+        fac=1;
+    }else{
+        for(int i=1; i<=num; i++){
+            fac*=i;
+        }
+    }
+    cout<<"Factorial of " << num << " is: " << fac << endl; 
+
+}
