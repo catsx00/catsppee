@@ -1,0 +1,77 @@
+...................................... [Prime Number] ...................................
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    int n;
+    cout<<"enter number to check wheather it is Prime: ";
+    cin>>n;
+    bool isPrime=true;
+
+    if(n<=1){
+        cout<<"it is not a Prime number"<<endl;
+        return 0;
+    }
+
+    if(n>1){
+        for(int i=2; i<=sqrt(n); i++){
+            if(n%i==0)
+            isPrime = false;
+        }
+    }
+
+    if(isPrime){
+        cout<< n <<" is a Prime number"<<endl;
+    }else{
+        cout<< n <<" is not a Prime number"<<endl;
+    }
+}
+
+
+
+
+
+.............................. [Prime between two num] ..............................
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void isItPrime(int n){
+    bool isPrime = true;
+
+    if (n<=1){
+        cout<<n<<" is not a Prime Number"<<endl;
+        exit(0);
+    }
+
+    for (int i = 2; i <= sqrt(n); i++){
+        if (n%i==0)
+        {
+            isPrime=false;
+            break;
+        }   
+    }
+
+    if (isPrime){
+        cout<<n<<" ";
+    }
+}
+
+void printPrimeBtnTwoNum(int x, int y){
+    for (int i = x; i <= y; i++){
+        isItPrime(i);
+    }
+}
+
+
+int main(){
+    int a,b;
+    cout<<"enter the lower limit(>2) & upper limit: ";
+    cin>>a>>b;
+
+    printPrimeBtnTwoNum(a,b);
+}
