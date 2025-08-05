@@ -1,0 +1,420 @@
+.................................... [Armstrong num] .....................................
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n, digit=0, sum=0;
+    
+    cout<<"enter the number to check wheather it is a Armstong number"<<endl;
+    cin>>n;
+    
+    int temp=n;
+    while (temp!=0)
+    {
+        temp/=10;
+        digit++;
+    }
+    
+    int x=n;
+    while (x!=0)
+    {
+        sum+=pow(x%10,digit);
+        x/=10;
+    }
+
+    if (n==sum) {cout <<"it is a Armstong Number"<<endl;}
+    else {cout <<"it is not a Armstong Number"<<endl;}
+    
+    return 0;
+}
+
+
+
+
+
+........................... [Armstrong between two num] ..................................
+
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<< "Enter the lower & upper limits: ";
+    cin>>a>>b;
+
+    cout<< "Armstrong Numbers are: ";
+    for(int i=a; i<=b; i++){
+        int sum=0, digit=0;
+
+        int temp=i;
+        while(temp!=0){
+            digit++;
+            temp/=10;
+        }
+
+        int x=i;
+        while(x!=0){
+            sum+=pow(x%10,digit);
+            x/=10;
+        }
+        if(sum==i)
+        cout<< i << "\t";
+    }
+}
+
+
+
+
+.................................... [Hcf Lcm] ...........................................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<<"Enter two numbers to calculate LCM & HCF: ";
+    cin>>a>>b;
+
+    if(a==0 || b==0){
+        cout<<"LCM & HCF cannot be obtained"<<endl;
+        return 0;
+    }
+    if(a<0) {a=-a;}
+    if(b<0) {b=-b;}
+
+    int min, lcm, hcf;
+    if(a<b) {min= a;}
+    else {min =b;}
+
+    for(int i=1; i<=min; i++){
+        if(a%i==0 && b%i==0){hcf=i;}
+    }
+
+    lcm=(a*b)/hcf;
+
+    cout<<"LCM = "<<lcm<<" & HCF = "<<hcf;
+}
+
+
+
+
+
+............................. [leap year testing] ........................................
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter your year to check wheather it is a leap year: ";
+    cin >> n;
+
+    bool isleap = false;
+    if (n % 4 == 0)
+    {
+        if (n % 100 == 0){
+            if(n % 400 == 0){
+                isleap = true;
+            }else{
+                isleap = false;
+            }
+        }else{
+            isleap = true;
+        }
+
+    }
+
+    if (isleap == true){
+        cout << n << " is a leap year";
+    }else{
+        cout << n << " is not a leap year";
+    }
+}
+
+
+
+
+
+
+................................... [Palindrome num] .....................................
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n, rev=0;
+    cout<<"enter the Number to check wheather it is Palindrome: ";
+    cin>>n;
+    if(n<0){
+        cout<<"there is no Palindrome number for negetive numbers";
+        return 0;
+    }
+
+    int x=n;
+    while(x!=0){
+        rev = rev*10 + x%10;
+        x/=10;
+    }
+
+    if(rev==n){
+        cout<<"It is a Palindrome Number"<<endl;
+    }else{
+        cout<<"It is not a Palindrome Number"<<endl;
+    }
+
+}
+
+
+
+
+.............................. [Palindrome between two num] ..............................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<<"Enter the lower and upper limits: ";
+    cin>>a>>b;
+    
+    if(a<0 || b<0){
+        cout<<"Palindrome number does't exists";
+        return 0;
+    }
+
+    cout<<"Palindrome numbers between "<<a<<" & "<<b<<" are: ";
+    for(int i=a; i<=b; i++){
+        int rev=0;
+        
+        int x=i;
+        while(x!=0){
+            rev = rev*10 + x%10;
+            x/=10;
+        }
+        
+        if(rev==i){cout<< i <<"\t";}
+    }
+
+}
+
+
+
+
+
+...................................... [Prime Number] ...................................
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    int n;
+    cout<<"enter number to check wheather it is Prime: ";
+    cin>>n;
+    bool isPrime=true;
+
+    if(n<=1){
+        cout<<"it is not a Prime number"<<endl;
+        return 0;
+    }
+
+    if(n>1){
+        for(int i=2; i<=sqrt(n); i++){
+            if(n%i==0)
+            isPrime = false;
+        }
+    }
+
+    if(isPrime){
+        cout<< n <<" is a Prime number"<<endl;
+    }else{
+        cout<< n <<" is not a Prime number"<<endl;
+    }
+}
+
+
+
+
+.............................. [Prime between two num] ..............................
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void isItPrime(int n){
+    bool isPrime = true;
+
+    if (n<=1){
+        cout<<n<<" is not a Prime Number"<<endl;
+        exit(0);
+    }
+
+    for (int i = 2; i <= sqrt(n); i++){
+        if (n%i==0)
+        {
+            isPrime=false;
+            break;
+        }   
+    }
+
+    if (isPrime){
+        cout<<n<<" ";
+    }
+}
+
+void printPrimeBtnTwoNum(int x, int y){
+    for (int i = x; i <= y; i++){
+        isItPrime(i);
+    }
+}
+
+
+int main(){
+    int a,b;
+    cout<<"enter the lower limit(>2) & upper limit: ";
+    cin>>a>>b;
+
+    printPrimeBtnTwoNum(a,b);
+}
+
+
+
+
+
+
+
+.................................. [Factorial of a Number] ..............................
+
+
+//[FACTORIAL USING RECURSION]..........
+
+#include<iostream>
+using namespace std;
+
+int fac(int n);
+
+int main(){
+    int num;
+    cout<< "Enter a number to find its factorial: ";
+    cin>> num;
+    cout<< "the factorial of "<< num << " is: " <<fac(num) <<endl;
+}
+
+int fac(int n){
+    if(n==0 || n==1){
+        return 1;
+    } else {
+        return n * fac(n - 1);
+    }
+}
+
+
+
+
+//[FACTORIAL USING LOOP]..........
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int num, fac=1;
+    cout<< "Enter a number to find its factorial: "<<endl;
+    cin>> num;
+
+    if(num==0){
+        fac=1;
+    }else{
+        for(int i=1; i<=num; i++){
+            fac*=i;
+        }
+    }
+    cout<<"Factorial of " << num << " is: " << fac << endl; 
+
+}
+
+
+
+
+
+................................... [SUM OF n NUMBERS] ...................................
+
+
+//[sum of n numbers from a to b]......................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<<"Enter the lower and upper limit"<<endl;
+    cin>>a>>b;
+
+    int sum = 0;
+    for(int i = a; i <= b; i++) {
+        sum+=i;
+    }
+
+    cout<<"The sum of all the numbers from "<<a<<" to "<<b<<" is "<<sum<<endl;
+}
+
+
+
+
+
+
+//[sum of first n natural numbers]....................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n, sum=0;
+    cout<< "Enter the number: ";
+    cin>>n;
+
+    for(int i=1; i<=n; i++){
+        sum+=i;
+    }
+    cout<<"the Sum of first "<< n <<" numbers is: "<< sum;
+}
+
+
+
+
+
+
+................................ [largest of 3 numbers] ...................................
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    float n1,n2,n3,largest;
+    cout <<"Enter three Numbers for comparison: ";
+    cin>>n1>>n2>>n3;
+
+    if(n1>n2 && n1>n3){
+        largest=n1;
+    }
+    else if(n2>n1 && n2>n3){
+        largest=n2;
+    }
+    else if(n3>n1 && n3>n2){
+        largest=n3;
+    }
+
+    cout<<"the Largest Number is: "<<largest;
+}
+
