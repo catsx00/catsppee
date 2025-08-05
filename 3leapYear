@@ -1,0 +1,32 @@
+............................. [leap year testing] ........................................
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter your year to check wheather it is a leap year: ";
+    cin >> n;
+
+    bool isleap = false;
+    if (n % 4 == 0)
+    {
+        if (n % 100 == 0){
+            if(n % 400 == 0){
+                isleap = true;
+            }else{
+                isleap = false;
+            }
+        }else{
+            isleap = true;
+        }
+
+    }
+
+    if (isleap == true){
+        cout << n << " is a leap year";
+    }else{
+        cout << n << " is not a leap year";
+    }
+}
